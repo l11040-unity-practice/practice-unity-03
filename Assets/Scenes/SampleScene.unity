@@ -242,7 +242,7 @@ Transform:
   m_GameObject: {fileID: 811561834}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -334,8 +334,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -428,7 +428,7 @@ Transform:
   m_GameObject: {fileID: 1719106691}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.23, y: 0, z: -0.85}
+  m_LocalPosition: {x: 3.631, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -457,7 +457,7 @@ CapsuleCollider:
   m_Radius: 0.25
   m_Height: 1.7
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.85, z: 0}
 --- !u!54 &1719106694
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -511,15 +511,51 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1719106696}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 3e0e8c30-d8ee-4cb5-97f5-493b461819ef
     m_ActionName: Player/Move
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1719106696}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 989f4fef-6b9f-4415-83f5-67b3912723a9
     m_ActionName: Player/Look
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1719106696}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 9038aa0c-e433-4bb1-ac66-0c28f4ca0b94
     m_ActionName: Player/Jump
   - m_PersistentCalls:
@@ -551,6 +587,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0563bed3a6702a34a90693c9e1025bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MoveSpeed: 10
+  JumpPower: 100
+  GroundLayerMask:
+    serializedVersion: 2
+    m_Bits: 55
+  CameraContainer: {fileID: 811561835}
+  MinXLook: -85
+  MaxXLook: 85
+  LookSensitivity: 0.1
 --- !u!114 &1719106697
 MonoBehaviour:
   m_ObjectHideFlags: 0

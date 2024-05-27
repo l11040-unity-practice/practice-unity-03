@@ -58,6 +58,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Setting",
+                    "type": "Button",
+                    "id": "325c0b65-1d49-4237-95b0-9aba6b1535c1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "5defc2c4-e4bf-4b89-a85d-312a419b580d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -168,6 +186,28 @@
                     "processors": "",
                     "groups": "PlayerInput",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8184ab79-5500-4362-978a-741085a1ee09",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Setting",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "abf2b8bc-d0b1-4a4a-869c-0269a411ba9b",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
