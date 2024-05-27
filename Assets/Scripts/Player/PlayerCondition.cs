@@ -1,12 +1,7 @@
 using System;
 using UnityEngine;
 
-public interface IDamangable
-{
-    void TakePhysicalDamage(int damage);
-}
-
-public class PlayerCondition : MonoBehaviour, IDamangable
+public class PlayerCondition : MonoBehaviour, IDamagable
 {
     public UICondition UICondition;
     Condition _health { get { return UICondition.Health; } }
