@@ -3,20 +3,23 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public PlayerCondition Condition;
-    private PlayerController _controller;
-    public ItemData ItemData;
-    public event Action OnAddItem;
+    [HideInInspector] public PlayerCondition Condition;
+    [HideInInspector] public PlayerController Controller;
+    [HideInInspector] public PlayerEquipment Equipment;
+    [HideInInspector] public ItemData ItemData;
+    [HideInInspector] public event Action OnAddItemEvent;
+    public Transform DropPos;
 
     private void Awake()
     {
         CharacterManager.Instance.Player = this;
-        _controller = GetComponent<PlayerController>();
+        Controller = GetComponent<PlayerController>();
         Condition = GetComponent<PlayerCondition>();
+        Equipment = GetComponent<PlayerEquipment>();
     }
 
     public void CallAddItem()
     {
-        OnAddItem?.Invoke();
+        OnAddItemEvent?.Invoke();
     }
 }

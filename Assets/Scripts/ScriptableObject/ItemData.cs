@@ -36,4 +36,7 @@ public class ItemData : ScriptableObject
 
     [Header("Consumables")]
     public ItemDataConsumable[] Consumables;
+
+    [Header("Equip")]
+    public GameObject EquipPrefab;
 }

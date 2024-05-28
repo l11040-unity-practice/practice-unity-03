@@ -1,4 +1,4 @@
-using Palmmedia.ReportGenerator.Core;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody _rigidbody;
     private bool isSetting = false;
+    public bool CanLook = true;
+    public event Action OnInventoryEvent;
 
     private void Awake()
     {
@@ -32,7 +34,7 @@ public class PlayerController : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if (!isSetting)
+        if (!isSetting && CanLook)
         {
             CameraLook();
         }
@@ -119,20 +121,19 @@ public class PlayerController : MonoBehaviour
         }
         return false;
     }
-    private void OnDrawGizmosSelected()
+    public void OnInventory(InputAction.CallbackContext context)
     {
-        Gizmos.color = Color.red;
-        Vector3[] rayOrigins = new Vector3[4]
+        if (context.phase == InputActionPhase.Started)
         {
-            transform.position + (transform.forward * 0.2f) + (transform.up * 0.01f),
-            transform.position + (-transform.forward * 0.2f) + (transform.up * 0.01f),
-            transform.position + (transform.right * 0.2f) + (transform.up * 0.01f),
-            transform.position + (-transform.right * 0.2f) + (transform.up * 0.01f)
-        };
-
-        foreach (Vector3 origin in rayOrigins)
-        {
-            Gizmos.DrawLine(origin, origin + Vector3.down * 0.1f);
+            OnInventoryEvent?.Invoke();
+            ToggleCursor();
         }
+    }
+
+    private void ToggleCursor()
+    {
+        bool toggle = Cursor.lockState == CursorLockMode.Locked;
+        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
+        CanLook = !toggle;
     }
 }
