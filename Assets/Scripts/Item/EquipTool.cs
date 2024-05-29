@@ -4,6 +4,7 @@ public class EquipTool : Equip
 {
   [SerializeField] private float _attackRate;
   [SerializeField] private float _attackDistance;
+  [SerializeField] private float _useStamina;
   private bool _isAttacking;
 
   [Header("Resource Gathering")]
@@ -26,9 +27,12 @@ public class EquipTool : Equip
   {
     if (!_isAttacking)
     {
-      _isAttacking = true;
-      _animator.SetTrigger("Attack");
-      Invoke("OnCanAttack", _attackRate);
+      if (CharacterManager.Instance.Player.Condition.UseStamina(_useStamina))
+      {
+        _isAttacking = true;
+        _animator.SetTrigger("Attack");
+        Invoke("OnCanAttack", _attackRate);
+      }
     }
   }
 
